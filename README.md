@@ -25,12 +25,16 @@ and no external dependencies**.
 
 None — stdlib only. SQLite ships with Python; FTS5 is included in most builds.
 
+## Guide
+
+For the full walkthrough, configuration notes, and public-safe usage guidance, see the [GBrain Memory Plugin page in the Hermes Guide](https://github.com/majesticlabs-dev/hermes-guide/blob/master/gbrain-memory-plugin.md).
+
 ## Installation
 
 Clone directly into the Hermes plugins directory:
 
 ```bash
-git clone https://github.com/<org>/hermes-gbrain-plugin.git ~/.hermes/plugins/gbrain
+git clone https://github.com/majesticlabs-dev/hermes-gbrain-plugin.git ~/.hermes/plugins/gbrain
 ```
 
 ## Setup
