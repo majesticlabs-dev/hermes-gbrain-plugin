@@ -17,8 +17,18 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from agent.memory_provider import MemoryProvider
-from tools.registry import tool_error
+try:
+    from agent.memory_provider import MemoryProvider
+    from tools.registry import tool_error
+    _HERMES_RUNTIME_AVAILABLE = True
+except ModuleNotFoundError:
+    # Allow standalone imports of gbrain.extractor/store outside the Hermes
+    # runtime. Provider registration still requires Hermes.
+    MemoryProvider = object  # type: ignore[assignment]
+    _HERMES_RUNTIME_AVAILABLE = False
+
+    def tool_error(message: str) -> str:
+        return json.dumps({"error": message})
 
 from .store import GBrainStore
 
@@ -236,5 +246,7 @@ class GBrainProvider(MemoryProvider):
 
 def register(ctx) -> None:
     """Register the GBrain memory provider with the plugin system."""
+    if not _HERMES_RUNTIME_AVAILABLE:
+        raise RuntimeError("GBrain provider registration requires the Hermes runtime")
     provider = GBrainProvider()
     ctx.register_memory_provider(provider)
