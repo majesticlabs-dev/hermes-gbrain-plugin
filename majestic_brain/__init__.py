@@ -7,7 +7,7 @@ phrases/capitalized entities/AKA aliases, and entity-based note linking.
 No network calls, no model calls, no external dependencies. Disabled unless
 activated via ``memory.provider: majestic-brain`` in config.yaml.
 
-Storage: ``<hermes_home>/gbrain/gbrain.db`` (path preserved for data continuity).
+Storage: ``<hermes_home>/majestic-brain/majestic_brain.db`` (run scripts/migrate_from_gbrain.py to move legacy data).
 """
 
 from __future__ import annotations
