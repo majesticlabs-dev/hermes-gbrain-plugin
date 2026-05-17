@@ -5,13 +5,9 @@ search, deterministic regex extraction of URLs/file paths/@handles/#tags/quoted
 phrases/capitalized entities/AKA aliases, and entity-based note linking.
 
 No network calls, no model calls, no external dependencies. Disabled unless
-activated via ``memory.provider: majestic-brain`` (or ``gbrain`` for legacy) in config.yaml.
+activated via ``memory.provider: majestic-brain`` in config.yaml.
 
-Storage: ``<hermes_home>/gbrain/gbrain.db`` (preserved for data continuity)
-
-Legacy compatibility: accepts both ``majestic_brain_note`` (primary) and
-``gbrain_note`` (legacy) tool names. Provider primary name is ``majestic-brain``;
-``gbrain`` is accepted as a legacy alias via ``matches_name()``.
+Storage: ``<hermes_home>/gbrain/gbrain.db`` (data path preserved for continuity).
 """
 
 from __future__ import annotations

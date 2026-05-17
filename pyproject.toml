@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "hermes-majestic-brain-plugin"
 version = "0.3.1"
-description = "Majestic Brain — local SQLite/FTS5 note store with deterministic entity extraction, content-hash dedup, and provenance tracking for Hermes Agent. Primary name: majestic-brain (gbrain legacy alias supported)."
+description = "Majestic Brain — local SQLite/FTS5 note store with deterministic entity extraction, content-hash dedup, and provenance tracking for Hermes Agent. Primary name: majestic-brain."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
@@ -30,7 +30,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["majestic_brain*", "gbrain*"]
+include = ["majestic_brain*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
