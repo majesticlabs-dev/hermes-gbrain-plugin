@@ -1,4 +1,4 @@
-# Majestic Brain (formerly GBrain)
+# Majestic Brain - Hermes Memory Provider
 
 Local-first SQLite/FTS5 note store with deterministic entity extraction for
 [Hermes Agent](https://github.com/NousResearch/hermes-agent).
