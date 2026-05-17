@@ -21,12 +21,23 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from agent.memory_provider import MemoryProvider
-from tools.registry import tool_error
-
 from .store import MajesticBrainStore
 
 logger = logging.getLogger(__name__)
+
+
+# Lazy / optional imports for standalone operation (CI, tests without Hermes)
+try:
+    from agent.memory_provider import MemoryProvider
+except ImportError:
+    MemoryProvider = object  # type: ignore[assignment]
+
+try:
+    from tools.registry import tool_error
+except ImportError:
+    def tool_error(msg: str) -> str:
+        return json.dumps({"error": msg})
+
 
 # ---------------------------------------------------------------------------
 # Tool schemas
